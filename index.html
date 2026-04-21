@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Bali Fashions-Home Page</title>
-  
-  <link rel="stylesheet" href="bali.css/bali.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com" rel="stylesheet">
-
-<style>
-/* 1. Global Reset & Body Fix */
+    
+   <title>Bali Fashions-Contacts Page</title>
+    <style>
+/* 1. Global Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -20,145 +14,159 @@
 }
 
 body {
+  font-family: 'Calibri', sans-serif;
+  background-color: #f9fafb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Calibri', sans-serif;
-  background-color: #f9fafb;
-}
-
-.page_wrapper {
-  flex: 1;
 }
 
 /* 2. Responsive Navbar */
 .navbar {
   display: flex;
   flex-wrap: wrap;
+  max-width: 600px;
   justify-content: center; 
-  gap: 15px;
+  gap: 10px;
   padding: 20px;
-  margin-top: 20px;
-}
+  text-align: center;
+  justify-items: center; 
+  margin: 20px auto;   /* KEY FIX */
+   }
 
 .navbar a {
+display: flex;
+flex-wrap: wrap;
   text-decoration: none;
   color: blue;
   padding: 10px 15px;
-  transition: all 0.3s ease;
+  transition: 0.3s;
   border-radius: 50px;
   font-weight: bold;
   font-size: 18px;
-}
+  flex: 1 1 120px;   /* THIS is the real solution */
+  text-align: center;
+  place-items: center; 
+  justify-content: center; 
+  justify-items: center; 
+  align-items: center;   /* vertical centering */
+ }
 
 .navbar a:hover {
   background-color: purple;
   color: white;
 }
 
-/* 3. Banner Section */
-.banner_container {
+/* 3. Headers & Banners */
+.scrolling_banner {
+  text-align: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.scrolling_banner h1 {
+  color: red;
+  font-size: clamp(30px, 8vw, 50px);
+}
+
+.second_header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 20px;
-  background-color: white;
-}
-
-.Banner_Header1 {
-  color: red;
-  font-size: 20px;
-  margin: 40px 0;
-  /* Animation removed for mobile stability, can be added back if desired */
-}
-
-.Banner_Header2 {
-  background-color: white;
   color: green;
-  padding: 20px 40px;
-  border-radius: 70px;
-  transition: 0.3s;
-  border: 1px solid #eee;
 }
 
-.Banner_Header2:hover {
-  transform: scale(1.02);
-  background-color: purple;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-
-/* 4. Middle Segments (Desktop: 3 Columns) */
-.middle_segment {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-.first_segment, .second_segment, .third_segment {
-  background-color: lightskyblue;
-  padding: 30px;
-  border-radius: 60px;
-  color: #111827;
-  transition: 0.3s;
-  /* REMOVED fixed 1000px height to prevent overflow */
-  min-height: 600px; 
-}
-
-.first_segment h2, .second_segment h2, .third_segment h2 {
-  color: red;
-  border-left: 5px solid red;
-  padding-left: 15px;
-  margin-bottom: 20px;
-  font-size: 32px;
-}
-
-.first_segment:hover, .second_segment:hover, .third_segment:hover {
-  transform: scale(1.01);
-  background-color: #e5e7eb;
-}
-
-/* 5. The "Third Segment" Image Cards */
-.third_segment {
+/* 4. Contact Wrapper - Responsive Grid */
+.contact_wrapper {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+ grid-template-columns: 1fr 1fr;
+ 
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  flex: 1; /* Pushes footer down */
 }
 
-.third_segment_grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.third_segment_card {
+.contact_form_area, .contact_map_area {
   background: white;
-  padding: 15px;
+  max-width: 500px;
+  padding: 30px;
   border-radius: 30px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: 0.3s;
 }
 
-.third_segment_card img {
+.contact_form_area:hover, .contact_map_area:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  background-color: #f0f4f8;
+}
+
+/* Form Styles */
+.bali_form h2 {
+  margin-bottom: 20px;
+  color: #1a2e44;
+}
+
+.bali_form input, .bali_form textarea {
   width: 100%;
-  max-height: 180px;
-  object-fit: cover; /* This fits the big photos perfectly */
-  border-radius: 20px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
 }
 
-.button-style {
-  display: inline-block;
-  background-color: purple;
+.contact_submit_btn {
+  background-color: #1a2e44;
   color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 25px;
-  margin-top: 10px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.contact_submit_btn:hover {
+  background-color: purple;
+}
+
+/* 5. Modal / Pop-up Styles */
+.modal {
+  border: none;
+  border-radius: 30px;
+  padding: 0;
+  margin: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal_content {
+  padding: 40px;
+  text-align: center;
+}
+
+.success_icon {
+  font-size: 40px;
+  color: #27ae60;
+  background: #e8f5e9;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
 }
 
 /* 5. Responsive Footer */
@@ -207,125 +215,93 @@ body {
     grid-template-columns: 1fr; /* Stack footer columns */
     text-align: center;
   }
-
-@media (max-width: 480px) {
+  
   .navbar a {
-    font-size: 14px;
+    font-size: 16px;
     padding: 8px 10px;
   }
-  
-  .first_segment, .second_segment, .third_segment {
+
+  .contact_form_area, .contact_map_area {
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
   }
 }
 </style>
 
+  
 </head>
-
 <body>
-<div class="page_wrapper">
-
-<div class="banner_container">
 
 <div class="navbar">
-
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
   <a href="products.html">Our Products</a>
   <a href="contacts.html">Contact Us</a>
 </div>
 
-<div class="Banner_Header1">
+<div class="scrolling_banner">
 <h1>BALI FASHIONS</h1>
 </div>
 
-<div class="Banner_Header2">
-<h2>Are you looking for a Tested and Trusted Textile Manufacturer?</h2>
-<h3><b>Look No Further!!<b></h3>
-</div>
-</div>
-
-<div class="middle_segment">
-
-<div class="first_segment">
-<p>
-
-  <h2> About Us </h2>
-
-  <p>
-    At <b>Bali Fashions</b>, we are more than just a textile manufacturer—we are a legacy of craftsmanship, consistency, and customer trust built over three decades.
-  </p>
-
-  <p>
-    Founded and proudly managed by the family of <b>Mr. Prakash Haria</b>, Bali Fashions has grown into a respected name in the textile industry, serving both local and regional markets with distinction. From our base in Baba Dogo Light Industrial Area, Nairobi, we specialize in the manufacture of high-quality uniforms, advertising materials, and safety products tailored to meet the evolving needs of our clients.
-  </p>
-
-  <p>
-    Our strength lies in our unwavering commitment to <b>quality, precision, and design excellence</b>. With a team of over 50 skilled and experienced professionals—many of whom have been with us for years—we ensure every product reflects superior craftsmanship and attention to detail.
-  </p>
-
-  <p>
-    At Bali Fashions, <b>customer satisfaction is the foundation of our business</b>. Our clients’ continued trust, positive feedback, and strong recommendations are a testament to our dedication to service excellence.
-  </p>
-
-  <p>
-    As we look ahead, we are focused on growth and expansion, with plans to establish additional branches both locally and regionally to better serve our growing clientele.
-  </p>
-  
-</p>
+<div class="second_header">
+  <h2>Are you looking for a Tested and Trusted Textile Manufacturer?</h2>
+  <h2>Look No Further!!</h2>
 </div>
 
-<div class="second_segment">
-<p>
-  <h2>Our Mission</h2>
-  <p>
-    To deliver high-quality textile products through innovative design, skilled craftsmanship, and a strong commitment to customer satisfaction.
-  </p>
+    <div class="contact_wrapper">
+        <!-- 1. The Form Area -->
+        <div class="contact_form_area">
+            <h2>Send us an Inquiry</h2>
+            <form class="bali_form" id="contactForm">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="How can we help you?" rows="6" required></textarea>
+                <button type="submit" class="contact_submit_btn">SEND MESSAGE</button>
+            </form>
+        </div>
+        
 
-  <h2>Our Vision</h2>
-  <p>
-    To be a leading textile manufacturer in Africa, recognized for quality, reliability, and excellence in service delivery.
-  </p>
-
-  <h2>Core Values</h2>
-  <ul>
-    <li><b>Quality Excellence</b> – We never compromise on the standard of our products.</li>
-    <li><b>Customer Focus</b> – Our customers are at the heart of everything we do.</li>
-    <li><b>Integrity</b> – We conduct our business with honesty and transparency.</li>
-    <li><b>Teamwork</b> – We value and empower our skilled workforce.</li>
-    <li><b>Innovation</b> – We continuously improve our designs and processes.</li>
-  </ul>
-  <br>  
-  <hr>
-</p>
+        <!-- 2. The Map Area -->
+        <div class="contact_map_area">
+            <h2>Find Our Factory</h2>
+<iframe 
+    src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d63822.664802848914!2d36.845787794827594!3d-1.2181960351508587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e0!4m3!3m2!1d-1.1913704999999999!2d36.9041132!4m5!1s0x182f1585c843cc3d%3A0x73c696361b827e02!2sAllied%20Industries%20Ltd%2C%20QV4G%2BMM4%2C%20Road%2C%20Nairobi!3m2!1d-1.2433735!2d36.876657699999996!5e0!3m2!1sen!2ske!4v1776719452153!5m2!1sen!2ske" 
+    width="100%" 
+    height="350" 
+    style="border:0; border-radius: 10px;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 </div>
-
-<div class="third_segment">
-
-  <h2>Our Products</h2>
-
-  <div class="third_segment_grid">
-
-    <div class="third_segment_card">
-      <img src="image1.png" alt="School Uniforms">
-      <p>School Uniforms</p>
-      <p>High-quality corporate, school, and industrial uniforms.</p>
     </div>
 
-    <div class="third_segment_card">
-      <img src="image2.png" alt="Security Uniforms">
-      <p>Security Uniforms</p>
-      <p>branded Security Uniforms</p>
-    </div>
-     
-      <a style="text-align: center;"  href="products.html" class="button-style"> Click for More Products</a>
-    </div>
-  </div>
-</p>
-</div>
-</div>
+    <!-- 3. The Success Pop-up -->
+    <dialog id="successModal" class="modal">
+        <div class="modal_content">
+            <div class="success_icon">✔</div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out to <b>Bali Fashions</b>. We will respond within 24 hours.</p>
+            <button onclick="closeModal()" class="close_btn">Back to Website</button>
+        </div>
+    </dialog>
 
+    <script>
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+
+        // Handle Form Submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page refresh
+            modal.showModal();  // Show the pop-up
+            form.reset();       // Clear the form
+        });
+
+        // Function to close modal
+        function closeModal() {
+            modal.close();
+        }
+    </script>
 <div class="footer">
 
   <div class="footer_container">
@@ -375,5 +351,3 @@ body {
 
 </body>
 </html>
-
-
