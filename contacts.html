@@ -25,13 +25,18 @@ body {
 .navbar {
   display: flex;
   flex-wrap: wrap;
+  max-width: 600px;
   justify-content: center; 
   gap: 10px;
   padding: 20px;
-  margin-top: 20px;
-}
+  text-align: center;
+  justify-items: center; 
+  margin: 20px auto;   /* KEY FIX */
+   }
 
 .navbar a {
+display: flex;
+flex-wrap: wrap;
   text-decoration: none;
   color: blue;
   padding: 10px 15px;
@@ -39,7 +44,13 @@ body {
   border-radius: 50px;
   font-weight: bold;
   font-size: 18px;
-}
+  flex: 1 1 120px;   /* THIS is the real solution */
+  text-align: center;
+  place-items: center; 
+  justify-content: center; 
+  justify-items: center; 
+  align-items: center;   /* vertical centering */
+ }
 
 .navbar a:hover {
   background-color: purple;
@@ -69,8 +80,10 @@ body {
 
 /* 4. Contact Wrapper - Responsive Grid */
 .contact_wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 columns on desktop */
+  display: flex;
+  flex-wrap: wrap;
+ grid-template-columns: 1fr 1fr;
+ 
   gap: 30px;
   max-width: 1200px;
   margin: 40px auto;
@@ -80,6 +93,7 @@ body {
 
 .contact_form_area, .contact_map_area {
   background: white;
+  max-width: 500px;
   padding: 30px;
   border-radius: 30px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -214,7 +228,7 @@ body {
 }
 </style>
 
-    </style>
+  
 </head>
 <body>
 
